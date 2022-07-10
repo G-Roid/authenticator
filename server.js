@@ -4,12 +4,11 @@ const connectDB = require('./db')
 const app = express()
 const PORT = 8000
 
+connectDB()
 
 // Middleware
 app.use(express.json());
-
-
-connectDB()
+app.use('/api/Auth', require('./Auth/Route'))
 
 
 const server = app.listen(PORT, () =>
